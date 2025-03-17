@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let getComputerChoice =
+        Math.random();
+        if (getComputerChoice < 0.34) {
+            getComputerChoice = "rock";
+        } else if (getComputerChoice <= 0.67) {
+            getComputerChoice = "paper";
+        } else {
+            getComputerChoice = "scissors";
+        } console.log ("Computer:" + getComputerChoice)
+    
+
+        let i = 0;
+        while (i < 5) {
+            getHumanChoice = prompt ("Select either rock, paper or scissors to play").toLowerCase();
+            i++;
+            console.log ("Human: " + getHumanChoice)
+        } 
+
+
+        function playRound (humanChoice, computerChoice) {
+            let humanScore = 0;
+
+            let computerScore = 0;
+            //when user chooses rock
+            if (getHumanChoice === "rock" && getComputerChoice === "paper") {
+                humanScore ++;
+                console.log ("You win! rock beats paper")
+            } else if (getHumanChoice === "rock" && getComputerChoice === "rock") {
+                console.log ("Its a tie")
+            } else if (getHumanChoice === "rock" && getComputerChoice === "scissors") {
+                humanScore ++;
+                console.log ("You win! rock beats scissors");
+
+                //when user chooses paper
+            } else if (getHumanChoice === "paper" && getComputerChoice === "paper") {
+                console.log ("Its a tie")
+            } else if (getHumanChoice === "paper" && getComputerChoice === "rock") {
+                computerScore ++;
+                console.log ("You loose! rock beats paper")
+            } else if (getHumanChoice === "paper" && getComputerChoice === "scissors") {
+                computerScore ++;
+                console.log ("You loose! scissors beats paper");
+
+
+                //when user chooses scissors
+            } else if (getHumanChoice === "scissors" && getComputerChoice === "paper") {
+                humanScore ++;
+                console.log ("You win! scissors beats paper")
+            } else if (getHumanChoice === "scissors" && getComputerChoice === "rock") {
+                computerScore ++;
+                console.log ("You loose, rock beats scissors")
+            } else if (getHumanChoice === "scissors" && getComputerChoice === "scissors") {
+                console.log ("Its a tie")
+            }
+
+            console.log ("Computer score is" + computerScore)
+            console.log ("User score is " + humanScore)
+
+        }
+
+        
+        playRound(getHumanChoice, getComputerChoice);
+       
+    </script>
+</body>
+</html>
